@@ -1,5 +1,5 @@
 # python-nft-generator
-Create generative art with inculded metadata
+Create generative art with included metadata
 
 # Setup
 - (Optional) Start virtual enviroment: venv\Scripts\activate.bat
