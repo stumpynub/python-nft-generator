@@ -6,7 +6,7 @@ Create generative art with inculded metadata
        pip install -r requirements.txt
 
 # Usage
-- **run command**: generator.py
+- **run command**: generate.py
 - Put art in subdirectories of the **layers** directory
 - Image will be layered based on directory order 
 - No duplicates
