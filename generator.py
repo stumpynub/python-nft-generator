@@ -1,7 +1,7 @@
 import os
 import random 
 import json
-import util
+from metadata import create_metadata
 from PIL import Image
 
 NAME : str = 'your nft'
@@ -41,19 +41,21 @@ def generate_image(name:str):
     seed = []
     
     # layer the image based of the directory order 
-    for path in layers_dirs:        
-        rand = random.randrange(0, len(os.listdir(path)))
-        seed.append(rand)
-        img = Image.open(os.path.join(path, os.listdir(path)[rand])).convert('RGBA')
-        base_img.paste(img, mask=img)
+    for path in layers_dirs:
+        
+        if len(os.listdir(path)) > 0: 
+            rand = random.randrange(0, len(os.listdir(path)))
+            seed.append(rand)
+            img = Image.open(os.path.join(path, os.listdir(path)[rand])).convert('RGBA')
+            base_img.paste(img, mask=img)
     
-    # If a seed is not found in seeds[], add new seed and create image 
+    # If a seed is not found in seeds[], add new seed and create image and metadata -> change metadata template in metadata.py
     if seed not in seeds: 
         seeds.append(seed)
         current_iteration += 1
         base_img.save(os.path.join(OUTPUT_DIR, name + f".{FORMAT}"))
         data = open(os.path.join(OUTPUT_DIR, f'{name}.json'), 'w')
-        json.dump(util.create_metadata(name, "Your NFT Description", current_iteration, "Your NFT URL"), data)
+        json.dump(create_metadata(name, "Your NFT Description", current_iteration, "Your NFT URL"), data)
 
     else: 
         print('Seed found')
