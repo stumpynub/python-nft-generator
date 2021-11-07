@@ -2,6 +2,7 @@
 Create generative art with inculded metadata
 
 # Setup
+- (Optional) Start virtual enviroment: venv\Scripts\activate.bat
 - Install requirements: 
        pip install -r requirements.txt
 
