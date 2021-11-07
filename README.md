@@ -1,2 +1,5 @@
 # python-nft-generator
-Basic python image generator
+Create generative art with inculded metadata
+
+# Setup
+In the console: pip install -r requirements.txt
