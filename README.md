@@ -2,7 +2,7 @@
 Create generative art with inculded metadata
 
 # Setup
-Install requirements: 
+-Install requirements: 
        pip install -r requirements.txt
 
 # Usage
